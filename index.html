@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Three.js App</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <button id="addCubeBtn">Add Cube</button>
+    <button id="addSphereBtn">Add Sphere</button>
+    <button id="addCylinderBtn">Add Cylinder</button>
+    <button id="addConeBtn">Add Cone</button>
+
+    <fieldset>
+        <legend>Recursive Space Properties</legend>
+        <div>
+            Parent Space:
+            <select id="rsParentSpaceSelect">
+                <option value="_scene_">Main Scene</option>
+            </select>
+        </div>
+        <div>
+            Position (relative to parent):
+            X: <input type="number" id="rsPosX" step="0.1" value="0">
+            Y: <input type="number" id="rsPosY" step="0.1" value="0">
+            Z: <input type="number" id="rsPosZ" step="0.1" value="-5">
+        </div>
+        <div>
+            Rotation (degrees):
+            X: <input type="number" id="rsRotX" step="1" value="0">
+            Y: <input type="number" id="rsRotY" step="1" value="0">
+            Z: <input type="number" id="rsRotZ" step="1" value="0">
+        </div>
+        <div>
+            Scale:
+            X: <input type="number" id="rsScaleX" step="0.1" value="1">
+            Y: <input type="number" id="rsScaleY" step="0.1" value="1">
+            Z: <input type="number" id="rsScaleZ" step="0.1" value="1">
+        </div>
+    </fieldset>
+
+    <button id="defineSpaceBtn">Define Recursive Space</button>
+    <button id="renderRecursiveBtn">Render Recursive Spaces</button>
+    <div id="container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
