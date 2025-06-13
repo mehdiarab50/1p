@@ -1,5 +1,7 @@
 # 3D Recursive Drawing Application
 
+For the Farsi version of this guide, see [README.fa.md](./README.fa.md). برای نسخه فارسی این راهنما، فایل [README.fa.md](./README.fa.md) را مشاهده کنید.
+
 This is a web-based application that allows users to create 3D scenes by adding primitive shapes and then defining "recursive spaces." A recursive space takes the contents of a parent space (either the main scene or another recursive space) and duplicates it, applying a new set of transformations (position, rotation, scale). This allows for the creation of complex, nested, and fractal-like 3D structures.
 
 Built with Three.js.
@@ -33,3 +35,15 @@ Built with Three.js.
 *   Define recursive spaces with user-controlled transformations (position, rotation, scale).
 *   Multi-level recursion: Recursive spaces can be based on other recursive spaces.
 *   Basic 3D scene controls (orbit, pan, zoom).
+
+## Project Structure
+
+*   `index.html`: The main HTML file, sets up the page structure, includes UI elements (buttons, inputs), and loads the Three.js library and the `main.js` script.
+*   `main.js`: Contains all the JavaScript code for the application logic. This includes setting up the Three.js scene, camera, renderer, lights, and controls. It handles adding primitive shapes to the scene and the core logic for defining and rendering recursive spaces.
+
+## Core Logic in `main.js`
+
+*   **Scene Setup**: Initializes the Three.js scene, camera, renderer, and lighting. Adds orbit controls for navigation and a ground plane.
+*   **Shape Creation**: Functions like `addCube()`, `addSphere()`, etc., create and add basic geometric shapes to the main scene. These objects are tracked in the `sceneObjects` array.
+*   **Recursive Space Definition**: The `defineNewRecursiveSpace()` function is central. It captures object data from a selected parent space (either the main scene or another recursive space). It stores this definition along with user-defined transformations (position, rotation, scale). Each recursive space is an instance of the `RecursiveSpace` class and is added to the `recursiveSpaces` array.
+*   **Rendering Recursive Spaces**: The `renderRecursiveSpaces()` function clears previous recursive renderings and then iterates through the `recursiveSpaces` definitions. It creates groups of objects based on these definitions, applying the specified transformations hierarchically. If a recursive space's parent is another recursive space, its group is added as a child to the parent's group, creating the nested structure.
